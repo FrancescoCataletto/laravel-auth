@@ -2,6 +2,23 @@
 
 @section('content')
 <div class="container">
-    <h1>QUESTA è LA INDEX DELLA CRUD</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>TITLE</td>
+                <td>TEXT</td>
+                <td>SLUG</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($posts as $post)
+            <tr>
+                <td>{{$post->title}}</td>
+                <td>{{$post->text}}</td>
+                <td>{{$post->slug}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 @endsection
