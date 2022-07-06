@@ -5,20 +5,20 @@
     <table>
         <thead>
             <tr>
+                <td>ID</td>
                 <td>TITLE</td>
                 <td>TEXT</td>
-                <td>SLUG</td>
                 <td>AZIONI</td>
             </tr>
         </thead>
         <tbody>
             @foreach ($posts as $post)
             <tr>
+                <td>{{$post->id}}</td>
                 <td>{{$post->title}}</td>
                 <td>{{$post->text}}</td>
-                <td>{{$post->slug}}</td>
                 <td>
-                    <a href="" class="btn btn-primary">SHOW</a>
+                    <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">SHOW</a>
                     <a href="" class="btn btn-success">EDIT</a>
                     <form action="" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?')">
                         @csrf
