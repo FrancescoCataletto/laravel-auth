@@ -56,9 +56,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -68,9 +68,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255|string',
+            'text' => 'required|string|max:255'
+        ],
+        [
+            'title.required' => 'Bisogna inserire un titolo',
+            'title.max' => 'Il titolo deve essere lungo al massimo 255 caratteri',
+            'title.string' => 'Il titolo deve essere una stringa',
+            'text.required' => 'Bisogna inserire una descrizione',
+            'text.string' => 'Il titolo deve essere una stringa',
+            'text.max' => 'La descrizion deve essere lunga al massimo 255 caratteri'
+        ]
+        );
     }
 
     /**

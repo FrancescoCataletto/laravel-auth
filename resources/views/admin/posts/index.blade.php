@@ -19,7 +19,7 @@
                 <td>{{$post->text}}</td>
                 <td>
                     <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">SHOW</a>
-                    <a href="" class="btn btn-success">EDIT</a>
+                    <a href="{{route('admin.posts.edit', $post)}}" class="btn btn-success">EDIT</a>
                     <form action="" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?')">
                         @csrf
                         @method('DELETE')
