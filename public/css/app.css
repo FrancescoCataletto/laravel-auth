@@ -10953,3 +10953,12 @@ a.text-dark:focus {
   }
 }
 
+table td {
+  border: 1px solid black;
+}
+
+table td a {
+  margin: 2px;
+  border: 1px solid black;
+}
+
